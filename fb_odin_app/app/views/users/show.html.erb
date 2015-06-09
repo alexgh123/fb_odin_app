@@ -1,6 +1,8 @@
-<h1>User Profile page!</h1>
+<h1><%= @user.first_name %>'s Profile page!</h1>
 
-<%= debug @user.attributes %>
+Full Name: <%= @user.first_name %> <%= @user.last_name %>
+
+
 
   <div class="col-md-8">
     <% if @user.posts.any? %>
@@ -8,6 +10,6 @@
       <ol class="posts">
         <%= render @posts %>
       </ol>
-      <%= @posts %>
+      <% # will paginate @posts %>
     <% end %>
   </div>
