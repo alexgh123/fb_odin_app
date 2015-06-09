@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   root 'static_pages#home'
 
   get 'users' => 'users#index'
-  get 'users/:id' => 'users#show'
+  get 'users/:id' => 'users#show', :as => :user
 
   resources :posts
 

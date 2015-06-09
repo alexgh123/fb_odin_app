@@ -11,7 +11,7 @@
   <% if user_signed_in? %>
   <li><%= link_to 'Edit account', edit_user_registration_path %></li>
   <li><%= link_to 'Sign out', destroy_user_session_path, :method=>'delete' %></li>
-  <li>Hey <%= current_user.first_name %> your user ID is: <%= current_user.id %> </li>
+  <li><%= link_to "My Profile", current_user %> </li>
 
 
 
