@@ -1,8 +1,9 @@
 <li id="post-<%= post.id %>">
 
-  <span class="user"><%= @user.first_name %><br></span>
+  <span class="user"><%= post.user.first_name %><br></span>
   <span class="content"><%= post.content %></span><br>
   <span class="timestamp">
     Posted <%= time_ago_in_words(post.created_at) %> ago.
   </span>
+  <br><br>
 </li>
