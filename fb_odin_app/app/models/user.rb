@@ -11,5 +11,5 @@ class User < ActiveRecord::Base
                     format: {with: VALID_EMAIL_REGEX},
                     uniqueness: {case_sensitive: false}
 
-  attr_accessor :first_name, :last_name
+
 end
