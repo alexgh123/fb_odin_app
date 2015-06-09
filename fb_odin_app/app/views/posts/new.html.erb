@@ -1,0 +1,25 @@
+
+
+
+<%= form_for @post do |post|%>
+
+  <%= post.hidden_field :user_id, :value => current_user.id %><br>
+  <!-- insert the below line into the above line if the above line works  -->
+  <!--  -->
+  <!-- not sure about the above line -->
+
+  Whats on your mind?<br>
+  <%= post.text_field :content %>
+
+
+  <%= post.submit "Post this to the internet!"%>
+
+<% end %>
+
+
+
+
+
+
+
+
