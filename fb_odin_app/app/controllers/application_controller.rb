@@ -17,10 +17,3 @@ class ApplicationController < ActionController::Base
 
 end
 
-
-# before_filter :configure_devise_parameters, if: :devise_controller?
-
-# protected
-# def configure_devise_parameters
-#   devise_parameter_sanitizer.for(:account_update) << :name
-# end
