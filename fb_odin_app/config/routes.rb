@@ -1,6 +1,15 @@
 Rails.application.routes.draw do
 
+
+
   devise_for :users
+
+  #basically I'm enabling users to be lazier by not having to use the users/sign_up route, just sign_up or sign_in
+  devise_scope :user do
+    get "sign_in", to: "devise/sessions#new"
+    get "sign_up", to: "devise/registrations#new"
+  end
+
   root 'static_pages#home'
 
   get 'users' => 'users#index'
