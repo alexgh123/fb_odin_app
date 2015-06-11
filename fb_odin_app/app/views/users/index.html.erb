@@ -2,6 +2,9 @@
 
 <% @users.each do |user| %>
   <%= link_to "#{user.first_name} #{user.last_name}", user_path(user)  %>
-  <%= link_to "Add as friend", '#' %>
+      <% unless current_user == @user %>
+        <%= link_to "Add Friend", friendships_path(:friend_id => user), :method => :post %>
+    <% end %>
   <hr>
 <% end %>
+
