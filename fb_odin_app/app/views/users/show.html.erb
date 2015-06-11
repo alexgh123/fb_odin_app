@@ -25,7 +25,18 @@ Full Name: <%= @user.first_name %> <%= @user.last_name %>
 <h3>My friend requests:</h3>
 
   <p>
-    friend request notifcation goes here
+    <% if current_user == @user %>
+        <h4>Friend Requests</h4>
+        <ul>
+            <% @user.requested_friendships.each do |request| %>
+            <li>
+              <%= request.email %>
+              <%= link_to "Accept", friendship_path(:id => request), :method => "put" %>
+              <%= link_to "Decline", friendship_path(:id => request), :method => :delete %>
+            </li>
+          <% end %>
+        </ul>
+    <% end %>
   </p>
 
   <hr>
