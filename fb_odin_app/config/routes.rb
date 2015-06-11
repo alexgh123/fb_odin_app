@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
 
 
+  resources :friendships
+
   devise_for :users
 
   #basically I'm enabling users to be lazier by not having to use the users/sign_up route, just sign_up or sign_in
