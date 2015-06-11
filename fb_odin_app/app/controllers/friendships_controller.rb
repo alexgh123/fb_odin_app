@@ -29,10 +29,10 @@ class FriendshipsController < ApplicationController
     @friendship = current_user.friendships.build(:friend_id => params[:friend_id], approved: "false")
       if @friendship.save
         flash[:notice] = "Friend requested."
-        redirect_to :back
+        redirect_to current_user
       else
         flash[:error] = "Unable to request friendship."
-        redirect_to :back
+        redirect_to current_user
       end
     end
 
