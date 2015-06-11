@@ -32,12 +32,41 @@ class User < ActiveRecord::Base
   has_many :pending_friends, -> { where(friendships: { approved: false}) }, :through => :friendships, :source => :friend
   has_many :requested_friendships, -> { where(friendships: { approved: false}) }, :through => :passive_friendships, :source => :user
 
-  def friends
-    active_friends | passive_friends
+  def kinda_friends
+    followers | following
   end
 
   def real_friends
-    # of the people im following,
+    # of the people im following, which ones are following me?
+
+    ride_or_die = [] #ride or die array built
+    maybe_hommies_array = [] #maybe_hommies_array built
+
+    following.each do |maybe_homie| #for each person that I'm following.....
+      maybe_hommies_array << maybe_homie #i want that person put into my maybe_hommies_array
+
+      #we will then keep them off to the side,
+
+      #further, if that person that I am following, is also following me,
+
+        maybe_hommies_array.each do |maybe_homie|
+
+          if followers.include?(maybe_homie)
+            ride_or_die << maybe_homie
+          else
+            #fuck 'em
+          end
+
+          #does this maybe homie included in my followers?
+          # for each maybe_homie,
+        end
+
+      # then we be true hommies and i want to know who they is...
+
+    end
+    ride_or_die
+
+
 
 
     #for each active friend, do they have you as an active friend
