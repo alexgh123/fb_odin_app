@@ -5,8 +5,16 @@ class FriendshipsController < ApplicationController
   # GET /friendships
   # GET /friendships.json
   def index
-    @friendships = Friendship.all
+    if current_user.admin?
+      @friendships = Friendship.all
+    else
+      @friendships = Friendship.all.where(user_id:current_user.id)
+    end
   end
+
+  # User.where(weekly_subscriber: true).find_each do |user|
+  # NewsMailer.weekly(user).deliver_now
+# end
 
   # # GET /friendships/1
   # # GET /friendships/1.json
