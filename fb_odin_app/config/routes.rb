@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     get "sign_up", to: "devise/registrations#new"
   end
 
-  root 'static_pages#home'
+  root 'posts#index'
 
   get 'users' => 'users#index'
   get 'users/:id' => 'users#show', :as => :user
