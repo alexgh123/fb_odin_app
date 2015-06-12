@@ -1,6 +1,8 @@
 class FriendshipsController < ApplicationController
   before_filter :authenticate_user!
   before_action :set_friendship, only: [:show, :edit, :update, :destroy]
+  #can only edit if Friendship.user_id = current_user.id
+
 
   # GET /friendships
   # GET /friendships.json
