@@ -3,6 +3,9 @@ class FriendshipsController < ApplicationController
   before_action :set_friendship, only: [:show, :edit, :update, :destroy]
   #can only edit if Friendship.user_id = current_user.id
 
+  #just say unless you are an admin, you can't mess with this
+
+
 
   # GET /friendships
   # GET /friendships.json
@@ -22,6 +25,7 @@ class FriendshipsController < ApplicationController
   # # GET /friendships/1.json
   def show
   end
+  #^ anybody can see any friendship, and edit it, random people could determine who your friends are...that is bad
 
   # # GET /friendships/new
   def new
