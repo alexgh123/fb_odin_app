@@ -26,7 +26,6 @@ Full Name: <%= @user.first_name %> <%= @user.last_name %>
 
   <p>
     <% if current_user == @user %>
-        <h4>Friend Requests</h4>
         <ul>
             <% @user.requested_friendships.each do |request| %>
             <li>
