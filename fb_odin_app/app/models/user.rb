@@ -20,6 +20,12 @@ class User < ActiveRecord::Base
   has_many :pending_friends, -> { where(friendships: { approved: false}) }, :through => :friendships, :source => :friend
   has_many :requested_friendships, -> { where(friendships: { approved: false}) }, :through => :passive_friendships, :source => :user
 
+  #----------likes!-----------
+  has_many :likes
+  has_many :liked_posts, :through => :likes, :source => :post
+
+
+
   def kinda_friends
     followers | following
   end
