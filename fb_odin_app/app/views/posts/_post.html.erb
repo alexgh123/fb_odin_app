@@ -4,9 +4,12 @@
   <span class="content"><%= post.content %></span><br>
 
   <span class="like button">
-    <%= link_to like_path , method: :post %>
+    <%= link_to "Like?", likes_path(:post_id => post.id) , method: :post %>
   </span>
 
+  <br>
+    : ) Hello: <%= post.id %>
+  <br>
 
 
   <br>

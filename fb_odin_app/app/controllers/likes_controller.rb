@@ -1,8 +1,10 @@
 class LikesController < ApplicationController
 
   def create
-    # post_id = params[:id]
-    @like = post.likes.build(user_id: current_user.id)
+    @post = Post.find(params[:post_id])
+
+    @like = current_user.likes.build(post_id: params[:post_id])
+
 
     #post id should be included
 

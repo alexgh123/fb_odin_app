@@ -6,3 +6,11 @@ Post:<br>
 <br><br>
 Author:<br>
 <%= @post.user.first_name %> <%= @post.user.last_name %>
+
+<br><br>
+
+Likers:<br>
+
+<% @post.likes.each do |like| %>
+  <%= User.find(like.user_id).first_name %>
+<% end %>
