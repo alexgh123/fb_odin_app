@@ -7,13 +7,12 @@ if any of the like.user_id's include the current_user's id, he can't like it
 
 if any of the post's likes include your user_id, then you can dislike -->
 
-<% post.likes.each do |like| %>
-  <% if like.user_id == current_user.id %>
-    <%= link_to "unlike" %><br>
-  <% else %>
-    <%= link_to "Like" %><br>
-  <% end %>
-<% end %>
 
+<% if current_user.likes.find_by_post_id(post.id) %>
+  <%= post.id %>
+<% else %>
+  <%= post.id %>
+<% end %>
+<br>
 
 
