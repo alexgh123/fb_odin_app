@@ -1,7 +1,4 @@
 
-
-
-
 <% if current_user.likes.find_by_post_id(post.id) %>
 
   <%= link_to "Unlike", like_path(:id => current_user.likes.find_by_post_id(post.id).id), method: :delete %>
