@@ -1,22 +1,24 @@
- <!-- just put erb tags around: link_to "Like?", likes_path(:post_id => post.id) , method: :post  -->
 
+<!-- works: like_to_destroy = current_user.likes.find_by_post_id(post.id).id   -->
 
-<!-- if you already have liked it, you can't like it again, you can unlike,
-
-if any of the like.user_id's include the current_user's id, he can't like it
-
-if any of the post's likes include your user_id, then you can dislike -->
-
-  <!-- the two things being compared are:
-    1. the current users known liked posts
-    2. and the current item that is being handled
-
-     -->
+     <hr>
+      DEBUG: <br>
+      Post ID: <%= post.id %><br><br>
+      <% post.likes.each do |like|  %>
+        Like ID: <%= like.id %>
+        Like User ID: <%= like.user_id %>
+        Like Post ID: <%= like.post_id %><br>
+      <% end %>
+     <hr>
 
 <% if current_user.likes.find_by_post_id(post.id) %>
-  <br><%= link_to "Unlike", "#" %>
-<% else %>
-  <%= link_to "Like", "#" %>
+
+  <%= link_to "Unlike", like_path(:id => current_user.likes.find_by_post_id(post.id).id), method: :delete %>
+
+  <% else %>
+
+  <%= link_to "Like?", likes_path(:post_id => post.id) , method: :post %>
+
 <% end %>
 <br>
 
