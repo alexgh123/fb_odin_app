@@ -10,7 +10,8 @@
   <br>
 
   <span class="likes">
-    <%= link_to "Like?", likes_path(:post_id => post.id) , method: :post %>
+
+    <%= render 'likes/like_button', post: post %>
     <%= render 'likes/likers', post: post %>
   </span>
   <hr>
