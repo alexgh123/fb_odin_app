@@ -11,7 +11,7 @@
 
   <span class="likes">
     <%= link_to "Like?", likes_path(:post_id => post.id) , method: :post %>
-    <%= link_to "Likers(#{ post.likes.count })", "#likers" %>
+    <%= render 'likes/likers', post: post %>
   </span>
   <hr>
 
