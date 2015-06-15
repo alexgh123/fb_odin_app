@@ -4,9 +4,11 @@
   <span class="content"><%= post.content %></span><br>
 
   <span class="like button">
-    <%= link_to "Like this post", "#" %>
+    <%= link_to like_path , method: :post %>
   </span>
-  <!-- Like.create(post_id:post.id, user_id:current_user.id) -->
+
+
+
   <br>
 
   By: <span class="user"><%= post.user.first_name %></span>

@@ -6,7 +6,7 @@ class Post < ActiveRecord::Base
 
   #-------- the people who like my stuff! -----
 
-  has_many :likes
+  has_many :likes #dependent: :destroy #this will remove likes if the user is deleted
   has_many :liking_users, :through => :likes, :source => :user
 
 
