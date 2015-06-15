@@ -1,7 +1,10 @@
-<li id="post-<%= post.id %>">
+<div id="post-<%= post.id %>">
 
 
   <span class="content"><%= post.content %></span><br>
+
+  <span class="like button"><%= link_to "Like this post", "#" %></span>
+  <br>
 
   By: <span class="user"><%= post.user.first_name %></span>
   <br>
@@ -12,8 +15,8 @@
   <br>
 
   <span class="likes">
-    Likes: <%= post.likes.count %>
+    <%= link_to "Likes(#{ post.likes.count })", "#likers" %>
   </span>
   <hr>
 
-</li>
+</div>
