@@ -2,9 +2,17 @@
 
 
   <span class="content"><%= post.content %></span><br>
-  By: <span class="user"><%= post.user.first_name %><br></span>
+
+  By: <span class="user"><%= post.user.first_name %></span>
+  <br>
+
   <span class="timestamp">
     Posted <%= time_ago_in_words(post.created_at) %> ago.
+  </span>
+  <br>
+
+  <span class="likes">
+    Likes: <%= post.likes.count %>
   </span>
   <hr>
 
