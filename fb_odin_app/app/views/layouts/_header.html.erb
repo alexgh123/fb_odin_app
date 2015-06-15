@@ -1,16 +1,35 @@
 <% if user_signed_in? %>
-  <li><%= link_to 'Edit account', edit_user_registration_path %></li>
-  <li><%= link_to 'Sign out', destroy_user_session_path, :method=>'delete' %></li>
-  <li><%= link_to "My Profile", current_user %> </li>
-  <li><%= link_to "Create new post!", new_post_path %></li>
+  <li>
+    <%= link_to 'Home Page', root_path %>
+  </li>
+
+  <li>
+    <%= link_to "My Profile", current_user %>
+  </li>
+
+  <li>
+    <%= link_to "Create new post!", new_post_path %>
+  </li>
+
+  <li>
+    <%= link_to 'Edit account', edit_user_registration_path %>
+  </li>
+
+  <li>
+    <%= link_to 'Sign out', destroy_user_session_path, :method=>'delete' %>
+  </li>
+
+  <li>
+    <%= link_to 'Users', users_path %>
+  </li>
+
+
 <% else %>
   <li><%= link_to 'Sign in', new_user_session_path %></li>
   <li><%= link_to 'Sign up', new_user_registration_path %></li>
 <% end %>
 
-<% if user_signed_in? %>
-  <li><%= link_to 'Users', users_path %></li>
-<% end %>
+
 
 <% flash.each do |message_type, message| %>
   <div class="alert alert-<%= message_type %>"><%= message %></div>
