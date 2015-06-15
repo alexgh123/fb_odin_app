@@ -21,7 +21,10 @@ class LikesController < ApplicationController
   end
 
   def destroy
-
+    @like = Like.find(params[:id])
+    @like.destroy
+    flash[:notice] = "Removed Like."
+    redirect_to :back
   end
 
     private

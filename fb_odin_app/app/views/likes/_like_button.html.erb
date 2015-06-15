@@ -1,15 +1,6 @@
 
-<!-- works: like_to_destroy = current_user.likes.find_by_post_id(post.id).id   -->
 
-     <hr>
-      DEBUG: <br>
-      Post ID: <%= post.id %><br><br>
-      <% post.likes.each do |like|  %>
-        Like ID: <%= like.id %>
-        Like User ID: <%= like.user_id %>
-        Like Post ID: <%= like.post_id %><br>
-      <% end %>
-     <hr>
+
 
 <% if current_user.likes.find_by_post_id(post.id) %>
 
