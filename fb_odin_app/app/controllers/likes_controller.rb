@@ -12,7 +12,7 @@ class LikesController < ApplicationController
 
     if @like.save
       flash[:success] = "you liked it!"
-      redirect_to @post
+      redirect_to root_path
     else
       flash[:danger] = "no idea what you are doing"
       redirect_to @post

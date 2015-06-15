@@ -2,28 +2,16 @@
 
 
   <span class="content"><%= post.content %></span><br>
-
-  <span class="like button">
-    <%= link_to "Like?", likes_path(:post_id => post.id) , method: :post %>
-  </span>
-
-  <br>
-    : ) Hello: <%= post.id %>
-  <br>
-
-
-  <br>
-
-  By: <span class="user"><%= post.user.first_name %></span>
   <br>
 
   <span class="timestamp">
-    Posted <%= time_ago_in_words(post.created_at) %> ago.
+    Posted <%= time_ago_in_words(post.created_at) %> ago by <%= post.user.first_name %>
   </span>
   <br>
 
   <span class="likes">
-    <%= link_to "Likes(#{ post.likes.count })", "#likers" %>
+    <%= link_to "Like?", likes_path(:post_id => post.id) , method: :post %>
+    <%= link_to "Likers(#{ post.likes.count })", "#likers" %>
   </span>
   <hr>
 
