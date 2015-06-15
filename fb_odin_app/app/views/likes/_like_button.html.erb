@@ -7,11 +7,16 @@ if any of the like.user_id's include the current_user's id, he can't like it
 
 if any of the post's likes include your user_id, then you can dislike -->
 
+  <!-- the two things being compared are:
+    1. the current users known liked posts
+    2. and the current item that is being handled
+
+     -->
 
 <% if current_user.likes.find_by_post_id(post.id) %>
-  <%= post.id %>
+  <br><%= link_to "Unlike", "#" %>
 <% else %>
-  <%= post.id %>
+  <%= link_to "Like", "#" %>
 <% end %>
 <br>
 
