@@ -16,7 +16,7 @@
 
 
   <span class= "comments">
-    <%= render 'comments/comment', post: post %>
+    <%= render partial: 'comments/comment', collection: post.comments %>
   </span>
 
 <hr>

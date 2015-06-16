@@ -1,19 +1,19 @@
-<h4> Comments: </h4>
-  <% if post.comments %>
-    <% post.comments.each do |comment| %><br>
-    <%= User.find(comment.user_id).first_name %>:<br>
-      <%= comment.content %><br>
 
 
       <!-- delete option -->
 
-      <% if current_user.id == comment.user_id %>
+
+
+
+<div>
+  <h4>Comment by <%= User.find(comment.user_id).first_name %></h4>
+  <p class="comment"><%= comment.content %></p>
+
+        <% if current_user.id == comment.user_id %>
         <%= link_to "delete comment", comment_path(:id => comment.id), method: :delete %>
       <% end %><br>
+</div>
 
-
-    <% end %>
-  <% end %>
 
 
 
