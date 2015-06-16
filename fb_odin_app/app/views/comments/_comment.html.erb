@@ -1,10 +1,7 @@
-<h4>Comment by <%= User.find(comment.user_id).first_name %></h4>
-<p class="comment"><%= comment.content %></p>
+<%= comment.content %> (<%= User.find(comment.user_id).first_name %>)
+
 
 <% if current_user.id == comment.user_id %>
   <%= link_to "delete comment", comment_path(:id => comment.id), method: :delete %>
-<% end %><br>
-
+<% end %>
 <br>
-
-

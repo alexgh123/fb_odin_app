@@ -7,21 +7,21 @@
   <span class="timestamp">
     Posted <%= time_ago_in_words(post.created_at) %> ago by <%= post.user.first_name %>
   </span>
-  <br>
+  <br><br>
 
   <span class="likes">
     <%= render 'likes/like_button', post: post %>
-    <%= render 'likes/likers', post: post %>
-  </span>
+    <%= render 'likes/likers', post: post %><br>
+  </span><br>
 
 
   <span class= "comments">
     <%= render partial: 'comments/comment', collection: post.comments %>
-  </span>
-
-  <span class= "comment creation">
     <%= render 'comments/form', post: post %>
   </span>
+
+
+
 
 
 
