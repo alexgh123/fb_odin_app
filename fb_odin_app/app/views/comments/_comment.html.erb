@@ -1,7 +1,23 @@
 <h4> Comments: </h4>
   <% if post.comments %>
-    <% post.comments.each do |comment| %>
-      <%= comment.content %><br><br>
-      Author: <%= User.find(comment.user_id).first_name %>
+    <% post.comments.each do |comment| %><br>
+    <%= User.find(comment.user_id).first_name %>:<br>
+      <%= comment.content %><br>
+
+
+      <!-- delete option -->
+
+      <% if current_user.id == comment.user_id %>
+        <%= link_to "delete comment", comment_path(:id => comment.id), method: :delete %>
+      <% end %><br>
+
+
     <% end %>
   <% end %>
+
+
+
+<!--   # if the current_user id is the same as the comment.user_id
+
+  then
+   present an option to delete the comment -->
