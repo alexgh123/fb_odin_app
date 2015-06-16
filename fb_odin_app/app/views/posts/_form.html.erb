@@ -1,0 +1,5 @@
+  <%= form_for @post do |post| %>
+    <%= post.text_field :content %>
+    <%= post.hidden_field :user_id, :value => current_user.id %>
+    <%= post.submit "Post!" %>
+  <% end %>
