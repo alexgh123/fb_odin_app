@@ -1,9 +1,6 @@
-<br>
-asdofnadslfn
-<br>
 
 <div id="post-<%= post.id %>">
-
+  <h4>Post</h4>
   <span class="content"><%= post.content %></span><br>
   <br>
 
@@ -22,7 +19,8 @@ asdofnadslfn
     <h4> Comments: </h4>
     <% if post.comments %>
       <% post.comments.each do |comment| %>
-        <%= comment.content %>
+        <%= comment.content %><br><br>
+        Author: <%= User.find(comment.user_id).first_name %>
       <% end %>
     <% end %>
   </span>
