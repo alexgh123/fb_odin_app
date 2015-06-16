@@ -1,4 +1,4 @@
-class CommentsController < ApplicationController
+  class CommentsController < ApplicationController
 
   before_filter :authenticate_user!
 
@@ -18,7 +18,7 @@ class CommentsController < ApplicationController
     @comment = current_user.comments.build(post_id: params[:post_id])
     if @comment.save
       flash[:success] = "comment created"
-      redirect_to :back
+      redirect_to root_path
     else
       flash[:danger] = "cant comment"
       redirect_to root_path

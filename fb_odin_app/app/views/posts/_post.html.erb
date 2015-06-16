@@ -13,6 +13,7 @@
     <%= render 'likes/like_button', post: post %>
     <%= render 'likes/likers', post: post %>
   </span>
+    <%= link_to "Comment on this post", new_comment_path, post_id: post.id %>
 
 
   <span class= "comments">
