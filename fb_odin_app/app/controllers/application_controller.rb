@@ -14,6 +14,8 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.for(:account_update) << :last_name
   end
 
+  # ^ i did the configure_permitted_parameters to let users have a first name and last name on sign up/update info. standard devise only allows email and password. i might have compromised the security a little because I read somewhere that using the non standard implementation weakens the security
+
 
 end
 
