@@ -6,6 +6,10 @@
 
 
       <!-- delete option -->
+      <br>
+      Comment on this: (i put partial back up chain)
+
+
 
       <% if current_user.id == comment.user_id %>
         <%= link_to "delete comment", comment_path(:id => comment.id), method: :delete %>

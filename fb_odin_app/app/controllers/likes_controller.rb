@@ -6,12 +6,8 @@ class LikesController < ApplicationController
     @post = Post.find(params[:post_id])
 
     @like = current_user.likes.build(post_id: params[:post_id])
-
-
     #post id should be included
-
       # Like.create(post_id:post.id, user_id:current_user.id)
-
     if @like.save
       flash[:success] = "you liked it!"
       redirect_to root_path
