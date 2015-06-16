@@ -9,6 +9,8 @@ class Post < ActiveRecord::Base
   has_many :likes #dependent: :destroy #this will remove likes if the user is deleted
   has_many :liking_users, :through => :likes, :source => :user
 
+  #----- comments -------
+  has_many :comments
 
 
 end
