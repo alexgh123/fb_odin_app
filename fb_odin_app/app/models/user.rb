@@ -24,6 +24,9 @@ class User < ActiveRecord::Base
   has_many :likes
   has_many :liked_posts, :through => :likes, :source => :post
 
+  # -------comments-------
+  has_many :comments
+
 
 
   def kinda_friends

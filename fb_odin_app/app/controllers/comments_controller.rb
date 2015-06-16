@@ -14,6 +14,17 @@ class CommentsController < ApplicationController
     @comment = Comment.new
   end
 
+  def create
+    @comment = current_user.comments.build(post_id: params[:post_id])
+    if @comment.save
+      flash[:success] = "comment created"
+      redirect_to :back
+    else
+      flash[:danger] = "cant comment"
+      redirect_to root_path
+    end
+  end
+
   def destroy
     @comment = Comment.find(params[:id])
     @comment.destroy
