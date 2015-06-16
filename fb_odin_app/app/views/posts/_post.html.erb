@@ -16,13 +16,7 @@
 
 
   <span class= "comments">
-    <h4> Comments: </h4>
-    <% if post.comments %>
-      <% post.comments.each do |comment| %>
-        <%= comment.content %><br><br>
-        Author: <%= User.find(comment.user_id).first_name %>
-      <% end %>
-    <% end %>
+    <%= render 'comments/comment', post: post %>
   </span>
 
 <hr>
