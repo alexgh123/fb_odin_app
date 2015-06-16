@@ -1,12 +1,12 @@
+
 <%= form_for @comment do |comment| %>
 
   <% comment.hidden_field :user_id, :value => current_user.id %>
 
+    <% comment.hidden_field :post_id, :value => post_id %>
 
-  <%= comment.text_field :content %>
+    <%= comment.text_field :content %>
 
   <%= comment.submit "Comment!" %>
 
 <% end %>
-
-

@@ -1,0 +1,19 @@
+<h3>Post a Comment</h3>
+
+post_id is: <%= post_id %>
+user_id is: <%= current_user.id %>
+
+
+<%= form_for(@comment) do |comment| %>
+  <p>
+
+    <% comment.hidden_field :post_id, :value => post_id %>
+    <% comment.hidden_field :user_id, :value => current_user.id %>
+    <%= comment.text_field :content %>
+
+  </p>
+  <p>
+    <%= comment.submit "Comment!" %>
+  </p>
+<% end %>
+

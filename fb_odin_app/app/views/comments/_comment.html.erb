@@ -1,4 +1,14 @@
+<<<<<<< HEAD
 <div>
   <h4>Comment by <%= User.find(comment.user_id).first_name %></h4>
   <p class="comment"><%= comment.content %></p>
 </div>
+=======
+<h4> Comments: </h4>
+  <% if post.comments %>
+    <% post.comments.each do |comment| %>
+      <%= comment.content %><br><br>
+      Author: <%= User.find(comment.user_id).first_name %>
+    <% end %>
+  <% end %>
+>>>>>>> parent of 6e30114... comment deleting feature completed

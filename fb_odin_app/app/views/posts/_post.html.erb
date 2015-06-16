@@ -1,6 +1,6 @@
 
 <div id="post-<%= post.id %>">
-  <h4>Post</h4>
+  <h4>Post <%= post.id %></h4>
   <span class="content"><%= post.content %></span><br>
   <br>
 
@@ -12,16 +12,15 @@
   <span class="likes">
     <%= render 'likes/like_button', post: post %>
     <%= render 'likes/likers', post: post %>
-  </span>
-    <%= link_to "Comment on this post", new_comment_path, post_id: post.id %>
-
+  </span><br>
 
   <span class= "comments">
-    <% # render 'comments/comment', post: post %>
 
     <%= render partial: 'comments/comment', collection: post.comments %>
 
-    <% #def render the new comment form here %>
+    <%  #render partial: 'comments/form', locals: {post_id: post.id} %>
+
+    <%= link_to "new comment", new_comment_path  %>
 
   </span>
 
