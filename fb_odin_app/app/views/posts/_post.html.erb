@@ -1,5 +1,8 @@
-<div id="post-<%= post.id %>">
+<br>
+asdofnadslfn
+<br>
 
+<div id="post-<%= post.id %>">
 
   <span class="content"><%= post.content %></span><br>
   <br>
@@ -14,9 +17,17 @@
     <%= render 'likes/likers', post: post %>
   </span>
 
-  <span class= "comments">
 
+  <span class= "comments">
+    <h4> Comments: </h4>
+    <% if post.comments %>
+      <% post.comments.each do |comment| %>
+        <%= comment.content %>
+      <% end %>
+    <% end %>
   </span>
+
 <hr>
 
 </div>
+
