@@ -14,5 +14,12 @@ class CommentsController < ApplicationController
     @comment = Comment.new
   end
 
+  def destroy
+    @comment = Comment.find(params[:id])
+    @comment.destroy
+    flash[:notice] = "Comment Removed"
+    redirect_to :back
+  end
+
 
 end
