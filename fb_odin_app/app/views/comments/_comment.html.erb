@@ -1,23 +1,7 @@
+<h4>Comment by <%= User.find(comment.user_id).first_name %></h4>
+<p class="comment"><%= comment.content %></p>
 
+<% if current_user.id == comment.user_id %>
+  <%= link_to "delete comment", comment_path(:id => comment.id), method: :delete %>
+<% end %><br>
 
-      <!-- delete option -->
-
-
-
-
-<div>
-  <h4>Comment by <%= User.find(comment.user_id).first_name %></h4>
-  <p class="comment"><%= comment.content %></p>
-
-        <% if current_user.id == comment.user_id %>
-        <%= link_to "delete comment", comment_path(:id => comment.id), method: :delete %>
-      <% end %><br>
-</div>
-
-
-
-
-<!--   # if the current_user id is the same as the comment.user_id
-
-  then
-   present an option to delete the comment -->
