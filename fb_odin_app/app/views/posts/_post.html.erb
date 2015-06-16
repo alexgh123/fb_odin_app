@@ -20,18 +20,7 @@
   </span>
 
   <span class= "comment creation">
-
-  <%= form_for @comment do |comment| %>
-
-  <%= comment.text_field :content %>
-
-  <%= comment.hidden_field :user_id, :value => current_user.id %>
-
-  <%= comment.hidden_field :post_id, :value => post.id %>
-
-  <%= comment.submit "Comment!" %>
-
-<% end %>
+    <%= render 'comments/form', post: post %>
   </span>
 
 
