@@ -2,11 +2,12 @@
 <% if current_user == @user %>
   <h3>My friend requests:</h3>  <p>
     <ul>
-        <% @user.requested_friendships.each do |request| %>
+        <% @user.requested_friendships.each do |user_object| %>
         <li>
-          <%= request.email %>
-          <%= link_to "Accept", friendship_path(:id => request), :method => "put" %>
-          <%= link_to "Decline", friendship_path(:id => request), :method => :delete %>
+          <%= user_object.email %>
+          <br><%= user_object %><br>
+          <%= link_to "Accept", friendship_path(:id => user_object), :method => "put" %>
+          <%= link_to "Decline", friendship_path(:id => user_object), :method => "delete" %>
         </li>
       <% end %>
     </ul>
