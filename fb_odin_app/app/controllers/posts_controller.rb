@@ -2,8 +2,10 @@ class PostsController < ApplicationController
 
   before_filter :authenticate_user!
 
+  include PostsHelper
+
   def index
-    @posts = Post.all
+    @posts = Post.where(user_id: people_I_follow_ids)
     @comment = Comment.new
     @post = Post.new
   end
