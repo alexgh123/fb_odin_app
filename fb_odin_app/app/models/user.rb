@@ -26,24 +26,7 @@ class User < ActiveRecord::Base
 
 
 
-  def kinda_friends
-    followers | following
-  end
 
-  def real_friends
-    maybe_hommies_array = []
-    ride_or_die = []
-    following.each do |maybe_homie|
-      maybe_hommies_array << maybe_homie
-        maybe_hommies_array.each do |maybe_homie|
-          if followers.include?(maybe_homie)
-            ride_or_die << maybe_homie
-          else
-          end
-        end
-    end
-    ride_or_die
-  end
 
 
 

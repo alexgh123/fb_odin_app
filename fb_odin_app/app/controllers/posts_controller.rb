@@ -5,7 +5,7 @@ class PostsController < ApplicationController
   include PostsHelper
 
   def index
-    @posts = Post.where(user_id: people_I_follow_ids)
+    @posts = Post.all
     @comment = Comment.new
     @post = Post.new
   end

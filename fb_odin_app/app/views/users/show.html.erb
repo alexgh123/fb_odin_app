@@ -6,23 +6,11 @@ Full Name: <%= @user.first_name %> <%= @user.last_name %>
 
 <h3>My friends:</h3>
 
-  <p>
-    <h5>Real Friends:</h5>
-    <% @user.real_friends.each do |friend| %>
-      <%= friend.first_name %>
-    <% end %>
-  </p>
 
-    <p>
-    <h5>Sham Friends:</h5>
-    <% @user.kinda_friends.each do |fake| %>
-      <%= fake.first_name %>
-    <% end %>
-  </p>
 
   <hr>
 
-<%= render 'friendships/requests' %>
+
 
 
 
