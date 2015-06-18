@@ -31,11 +31,12 @@ class User < ActiveRecord::Base
   has_many :liked_posts, :through => :likes, :source => :post
 
   def friendships
-    Friendship.where('user_1_id=? OR user_2_id=?', id, id)
+    Friendship.where('user_1_id=? OR user_2_id=?', id, id).uniq
   end
 
   def friends
-    User.joins('JOIN friendships f ON (users.id = f.user_1_id OR users.id = f.user_2_id)').where('users.id <> ?', id)
+    User.joins('JOIN friendships f ON (users.id = f.user_1_id OR users.id = f.user_2_id)').where('users.id <> ? AND (f.user_1_id = ? OR f.user_2_id = ?)', id, id, id).uniq
   end
+
 
 end
