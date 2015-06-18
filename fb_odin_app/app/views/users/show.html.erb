@@ -4,9 +4,27 @@ Full Name: <%= @user.first_name %> <%= @user.last_name %>
 
 <hr>
 
+  <p>
+    <% if current_user == @user && !@user.friend_requests.empty? %>
+      <h3>My friend requests:</h3>
+        <ul>
+            <% @user.friend_requests.each do |request| %>
+            <li>
+              <%= User.find(request.user_1_id).first_name %>
+
+              <%= link_to "Accept", friendship_path(:id => request), :method => "put" %>
+              <%= link_to "Decline", friendship_path(:id => request), :method => "delete" %>
+            </li>
+          <% end %>
+        </ul>
+    <% end %>
+  </p>
+
+
+
 <h3>My friends:</h3>
 
-
+(friends go here?)
 
   <hr>
 

@@ -38,5 +38,9 @@ class User < ActiveRecord::Base
     User.joins('JOIN friendships f ON (users.id = f.user_1_id OR users.id = f.user_2_id)').where('users.id <> ? AND (f.user_1_id = ? OR f.user_2_id = ?)', id, id, id).uniq
   end
 
+  def friend_requests
+    self.received_friendship_requests.where(user_2_status:"pending")
+  end
+
 
 end
