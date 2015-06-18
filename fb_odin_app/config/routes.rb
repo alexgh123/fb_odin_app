@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
 
 
+  get 'friendships/create'
+
   resources :friendships
 
   devise_for :users
