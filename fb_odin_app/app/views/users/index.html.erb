@@ -3,7 +3,7 @@
 <% @users.each do |user| %>
   <%= link_to "#{user.first_name} #{user.last_name}", user_path(user)  %>
       <% unless current_user == user %>
-        <%= link_to "Add Friend", friendships_path(:friend_id => user), :method => :post %>
+        <%= link_to "Add Friend", friendships_path(:friend_id => user.id), :method => :post %>
     <% end %>
   <hr>
 <% end %>
