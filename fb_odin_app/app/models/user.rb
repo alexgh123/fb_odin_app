@@ -24,8 +24,8 @@ class User < ActiveRecord::Base
     # and also a record of friendship
 
 
-  has_many :proactively_requested_friends, through: :initiated_friendships, source: :user_2, class: User
-  has_many :reactively_requested_friends,  through: :accepted_friendships,  source: :user_1, class: User
+  has_many :proactively_requested_users, through: :initiated_friendships, source: :user_2, class: User
+  has_many :reactively_requested_users,  through: :accepted_friendships,  source: :user_1, class: User
 
     # the thing we are trying to pick out is who initiated the friendship,
 
