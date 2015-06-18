@@ -16,41 +16,12 @@ class User < ActiveRecord::Base
 
 # belongs_to :user_1, class: User
 
-  has_many :friendship_requests_sent, foreign_key: :user_1_id, class: Friendship
-  has_many :friendship_requests_received,  foreign_key: :user_2_id, class: Friendship
-
-  #so im implicitly saying user 1 is the sender w/o explicitly saying, could be unclear, but i want to user the friendship object to represent:
-    # a request,
-    # and also a record of friendship
+  has_many :sent_friendship_requests, foreign_key: :user_1_id, class: Friendship
+  has_many :received_friendship_requests,  foreign_key: :user_2_id, class: Friendship
 
 
   has_many :proactively_requested_users, through: :initiated_friendships, source: :user_2, class: User
   has_many :reactively_requested_users,  through: :accepted_friendships,  source: :user_1, class: User
-
-    # the thing we are trying to pick out is who initiated the friendship,
-
-    # did you friend me or did i friend you? why does it matter????
-    # in facebook, after it happens, it doesn't, but the computer doesn't know better, a human friendship is a less specific thing
-
-    # this is a list of USERS based on who reached out first, the actual friendship doesn't form until both parties accept
-
-    # what do we call that?
-
-    # User.x  returns the people i either started the friendship with or i received the friendship from
-
-    # superiors vs. inferiors
-    # superior if i recieved the friendship
-    # inferior if i initiated the friendship
-
-    # what is a name for people who initiate the friendship
-
-    # proactive_friendships
-    # reactive_friendships
-
-
-
-
-
 
 
 
@@ -59,10 +30,12 @@ class User < ActiveRecord::Base
   has_many :likes
   has_many :liked_posts, :through => :likes, :source => :post
 
+  def friendships
+    Friendship.where('user_1_id=? OR user_2_id=?', id, id)
+  end
 
-
-
-
-
+  def friends
+    User.joins('JOIN friendships f ON (users.id = f.user_1_id OR users.id = f.user_2_id)').where('users.id <> ?', id)
+  end
 
 end
