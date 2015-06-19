@@ -3,17 +3,17 @@
 <% @users.each do |user| %>
   <%= link_to "#{user.first_name} #{user.last_name}", user_path(user)  %>
       <% if current_user == user %>
-        (can't friend self)
+        <!-- (can't friend self) -->
 
 
       <% elsif @array_of_pending_requested_users_ids.include?(user.id) %>
-        (you already requested)
+        <!-- (you already requested) -->
 
         <% elsif @second_array.include?(user.id) %>
-        (user already requested you!)
+        <!-- (user already requested you!) -->
 
       <% elsif current_user.friends.include?(user) %>
-        (already friends)
+        <!-- (already friends) -->
 
 
       <% else %>
