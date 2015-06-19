@@ -5,7 +5,8 @@ class PostsController < ApplicationController
   include PostsHelper
 
   def index
-    @posts = Post.all
+    friend_ids = current_user.friends.map(&:id)
+    @posts = Post.where(user_id:friend_ids)
     @comment = Comment.new
     @post = Post.new
   end
