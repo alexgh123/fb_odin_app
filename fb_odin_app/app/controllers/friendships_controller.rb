@@ -8,7 +8,7 @@ class FriendshipsController < ApplicationController
 
   def update
     Friendship.find(params[:id]).update_attributes(user_2_status:"active")
-    flash[:success] = "Yay! Y'all are friends!"
+    flash[:success] = "Yay! Friendship"
     redirect_to :back
   end
 
