@@ -6,6 +6,8 @@
         (can't friend self)
 
 
+      <% elsif @array_of_pending_requested_users_ids.include?(user.id) %>
+        (already requested)
 
       <% elsif current_user.friends.include?(user) %>
         (already friends)

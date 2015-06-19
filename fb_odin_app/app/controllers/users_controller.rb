@@ -4,6 +4,10 @@ class UsersController < ApplicationController
   before_filter :authenticate_user!
 
   def index
+    @array_of_pending_requested_users_ids = []
+    current_user.sent_friendship_requests.where(user_2_status:"pending").each do |request|
+      @array_of_pending_requested_users_ids << request.user_2_id
+    end
     @users = User.all
   end
 
