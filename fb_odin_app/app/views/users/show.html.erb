@@ -24,7 +24,9 @@ Full Name: <%= @user.first_name %> <%= @user.last_name %>
 
 <h3>My friends:</h3>
 
-(friends go here?)
+<% @user.friends.each do |friend| %>
+  <li><%= friend.first_name%> <%= friend.last_name %></li>
+<% end %>
 
   <hr>
 
