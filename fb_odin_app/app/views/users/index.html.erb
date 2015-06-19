@@ -9,6 +9,9 @@
       <% elsif @array_of_pending_requested_users_ids.include?(user.id) %>
         (already requested)
 
+        <% elsif @second_array.include?(user.id) %>
+        (user already requested you!)
+
       <% elsif current_user.friends.include?(user) %>
         (already friends)
 

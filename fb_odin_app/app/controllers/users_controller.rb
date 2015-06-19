@@ -5,9 +5,16 @@ class UsersController < ApplicationController
 
   def index
     @array_of_pending_requested_users_ids = []
+
     current_user.sent_friendship_requests.where(user_2_status:"pending").each do |request|
       @array_of_pending_requested_users_ids << request.user_2_id
     end
+
+    @second_array = []
+    current_user.received_friendship_requests.where(user_2_status:"pending").each do |request|
+      @second_array << request.user_1_id
+    end
+
     @users = User.all
   end
 
