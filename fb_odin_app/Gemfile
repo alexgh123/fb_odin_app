@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 
+#facebook sign-in option, kidna ironic if you ask me
+gem 'omniauth-facebook'
+
 #devise!
 gem 'devise'
 

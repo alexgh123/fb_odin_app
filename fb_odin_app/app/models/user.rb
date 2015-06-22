@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+         :recoverable, :rememberable, :trackable, :validatable, :omniauthable, :omniauth_providers => [:facebook]
   before_save { self.email = email.downcase }
   validates :first_name, presence: true, length: {maximum: 25}
   validates :last_name, presence: true, length: {maximum: 25}
@@ -29,6 +29,19 @@ class User < ActiveRecord::Base
   #----------likes!-----------
   has_many :likes
   has_many :liked_posts, :through => :likes, :source => :post
+
+  # ---- omni auth ------
+
+  def self.from_omniauth(auth)
+    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+      user.provider = auth.provider
+      user.uid = auth.uid
+      user.email = auth.info.email
+      user.password = Devise.friendly_token[0,20]
+      user.first_name = auth.info.name   # assuming the user model has a name
+      # user.image = auth.info.image # assuming the user model has an image
+    end
+  end
 
 
   # -------- friendship logic ---------

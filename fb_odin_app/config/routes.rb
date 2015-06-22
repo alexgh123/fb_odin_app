@@ -2,11 +2,23 @@ Rails.application.routes.draw do
 
 
 
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
+  # devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }, :skip => [:sessions, :registrations]
+  #   as :user do
+  #   get    'signup'  => 'registrations#new',       :as => :new_user_registration
+  #   post   'signup'  => 'registrations#create',    :as => :user_registration
+  #   get    'signin'  => 'devise/sessions#new',     :as => :new_user_session
+  #   post   'signin'  => 'devise/sessions#create',  :as => :user_session
+  #   delete 'signout' => 'devise/sessions#destroy', :as => :destroy_user_session
+  # end
+
+  # devise_for :users
+
+  # the routes are messed up, devise for users is the most general, but w/o omni auth instructions, and the small devise for users line is too small, to go step by step, i should try out just the top one, nubmer 1, then number 2, then 3. i think #2 is right,
 
   resources :friendships
 
-  devise_for :users
 
   #basically I'm enabling users to be lazier by not having to use the users/sign_up route, just sign_up or sign_in
   devise_scope :user do
