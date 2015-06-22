@@ -25,7 +25,6 @@ class User < ActiveRecord::Base
 
 
 
-
   #----------likes!-----------
   has_many :likes
   has_many :liked_posts, :through => :likes, :source => :post
@@ -49,18 +48,15 @@ class User < ActiveRecord::Base
     Friendship.where('user_1_id=? OR user_2_id=?', id, id).where("user_1_status='active' AND user_2_status='active'")
   end
 
-
-
   def friends
     User.joins('JOIN friendships f ON (users.id = f.user_1_id OR users.id = f.user_2_id)').where('users.id <> ? AND (f.user_1_id = ? OR f.user_2_id = ?)', id, id, id).where("f.user_1_status='active' AND f.user_2_status='active'")
   end
 
-
-
-
   def friend_requests
     self.received_friendship_requests.where(user_2_status:"pending")
   end
+
+
 
 
 end
