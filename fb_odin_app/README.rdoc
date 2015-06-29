@@ -3,6 +3,7 @@ This is a backend focused rails app that mimics the basic functionality of faceb
 TODO:
 - Front End design
 - Clean up all code
+- Lots more tests
 - verify permissions are correct (signed in user activities vs. current user activities)
 - limit devise views
 - data input validation
