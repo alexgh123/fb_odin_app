@@ -1,3 +1,6 @@
+link to code deployed via heroku:
+https://polar-oasis-7608.herokuapp.com/
+
 This is a backend focused rails app that mimics the basic functionality of facebook. The final project in the Rails section of The Odin Project.
 
 TODO:
