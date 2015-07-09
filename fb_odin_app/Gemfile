@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 
+# bootstrap implementation...to make it pretty!
+gem 'bootstrap-sass',       '3.2.0.0'
+
 #facebook sign-in option, kidna ironic if you ask me
 gem 'omniauth-facebook'
 

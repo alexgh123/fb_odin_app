@@ -8,9 +8,20 @@
 </head>
 <body>
 
-<%= render 'layouts/header' %>
+  <header class="navbar navbar-fixed-top navbar-inverse">
+    <div class="container">
+      <%= link_to "sample app", '#', id: "logo" %>
+      <nav>
+        <ul class="nav navbar-nav navbar-right">
+          <%= render 'layouts/header' %>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-<%= yield %>
+  <div class="container">
+    <%= yield %>
+  </div>
 
 </body>
 </html>
