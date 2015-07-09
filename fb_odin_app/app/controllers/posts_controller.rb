@@ -6,6 +6,7 @@ class PostsController < ApplicationController
 
   def index
     friend_ids = current_user.friends.map(&:id)
+    friend_ids << current_user.id
     @posts = Post.where(user_id:friend_ids)
     @comment = Comment.new
     @post = Post.new
