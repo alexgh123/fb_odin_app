@@ -65,3 +65,14 @@ p {
   color: #fff;
   text-decoration: none;
 }
+
+
+/* forms */
+
+#error_explanation {
+  text-align:center;
+  color: red;
+  ul {
+    color: red;
+  }
+}
