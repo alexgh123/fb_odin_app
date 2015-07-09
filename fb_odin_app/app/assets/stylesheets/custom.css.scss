@@ -69,10 +69,18 @@ p {
 
 /* forms */
 
-#error_explanation {
+#flash-alert {
   text-align:center;
   color: red;
   ul {
     color: red;
+  }
+}
+
+#flash {
+  text-align:center;
+  color: green;
+  ul {
+    color: green;
   }
 }
