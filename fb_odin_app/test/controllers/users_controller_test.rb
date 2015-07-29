@@ -5,9 +5,16 @@ class UsersControllerTest < ActionController::TestCase
   #   assert true
   # end
 
-  test "should get sign in page" do
-    get :sign_in
-    assert_response :success
+
+
+  def setup
+    @user = users(:user_one)
+    @other = users(:user_two)
+  end
+
+  test 'should redirect from index when not logged in' do
+    get :index
+    assert_redirected_to new_user_session_path
   end
 
 

@@ -7,4 +7,12 @@ class ActiveSupport::TestCase
   fixtures :all
 
   # Add more helper methods to be used by all tests here...
+
+  # https://github.com/plataformatec/devise#test-helpers
+  # include Devise::TestHelpers
 end
+
+
+class ActionController::TestCase
+  include Devise::TestHelpers
+end #this helped avoid 'uncaught throw :warden' error
