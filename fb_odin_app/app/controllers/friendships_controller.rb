@@ -14,7 +14,7 @@ class FriendshipsController < ApplicationController
 
   def destroy
     Friendship.find(params[:id]).destroy
-    flash[:notice] = "you are a heartless bastard"
+    flash[:notice] = "you are a heartless person"
     redirect_to :back
   end
 

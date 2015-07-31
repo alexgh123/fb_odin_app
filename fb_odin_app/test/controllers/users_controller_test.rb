@@ -29,5 +29,12 @@ class UsersControllerTest < ActionController::TestCase
     assert_response :success
   end
 
+  # do i have a test for every controller? aka, should I have a test to ensure the path doesn't work, or do i just make sure there is no route to go to? would users ever want to see the friendships/1 for example?
+
+
+  # has a profile/user show page
+
+  # user index page can send friend requests
+
 
 end
