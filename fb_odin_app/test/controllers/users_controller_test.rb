@@ -5,6 +5,8 @@ class UsersControllerTest < ActionController::TestCase
   #   assert true
   # end
 
+
+
   def setup
     @user = users(:user_one)
     @user.id = 3
@@ -23,8 +25,14 @@ class UsersControllerTest < ActionController::TestCase
     assert_redirected_to new_user_session_path
   end
 
+  # test 'current_user should return true when user is signed in' do
+  #   sign_in @user
+  #   current_user.should_not be_nil
+  # end
+
   test 'should allow signed in user to see another user' do
     sign_in @user
+    # byebug
     get :show, id:@other
     assert_response :success
   end
