@@ -16,3 +16,7 @@ end
 class ActionController::TestCase
   include Devise::TestHelpers
 end #this helped avoid 'uncaught throw :warden' error
+
+class Test::Unit::TestCase
+  include FactoryGirl::Syntax::Methods
+end
