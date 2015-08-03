@@ -1,18 +1,22 @@
 require 'test_helper'
 
 class PostsControllerTest < ActionController::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
 
-  # user can create a post
+  def setup
+    @user = users(:user_one)
+  end
 
-  # user can delete a post
+  test 'should redirect from posts index when not logged in' do
+    get :index
+    assert_redirected_to new_user_session_path
+  end
+
+  test 'should redirect from posts show when not logged in' do
+    get :show, id:1
+    # byebug
+    assert_redirected_to new_user_session_path
+  end
 
 
-
-
-
-  # shown in reverse chronological order?
 
 end

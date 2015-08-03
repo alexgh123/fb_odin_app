@@ -2,8 +2,9 @@
 
 post_one:
   content: MyText
-  user_id:
+  user_id: 1
 
 post_two:
   content: MyText
-  user_id:
+  user_id: 2
+
