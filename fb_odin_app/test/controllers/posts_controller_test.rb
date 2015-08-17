@@ -5,6 +5,7 @@ class PostsControllerTest < ActionController::TestCase
   def setup
     @user = users(:user_one)
     @post = posts(:post_one)
+    @user.posts << posts(:post_one)
   end
 
   test 'when not logged in, should redirect from posts index' do
